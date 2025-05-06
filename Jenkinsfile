@@ -5,30 +5,30 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    echo "Testing the application..."
-                    echo "Executing pipeline for branch ${BRANCH_NAME}" 
+                    echo "Testing the Application"
+                    echo "Execution pipeline for branch"
                 }
             }
         }
 
         stage('Build') {
             when {
-                expression { BRANCH_NAME == 'main' } 
+                expression { env.BRANCH_NAME == 'main' } 
             }
             steps {
                 script {
-                    echo "Building the application..."
+                    echo "Building the Application"
                 }
             }
         }
 
         stage('Deploy') {
             when {
-                expression { BRANCH_NAME == 'main' }
+                expression { env.BRANCH_NAME == 'main' }
             }
             steps {
                 script {
-                    echo "Deploying the application..."
+                    echo "Deploying the Application"
                 }
             }
         }
